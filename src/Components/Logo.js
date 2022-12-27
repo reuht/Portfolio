@@ -17,6 +17,12 @@ const Logo = styled.div`
     & span:hover {
         color: gold;
     }
+
+    @media (max-width: 992px) {
+        & span {
+            font-size: calc(2.7rem * 0.65);
+        }
+    }
 `; 
 
 export default Logo; 

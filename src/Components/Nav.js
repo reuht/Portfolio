@@ -5,7 +5,6 @@ const Nav = styled.nav`
 
     height: inherit;
     width: max-content;
-
     display: flex;
 
     & ul {
@@ -21,17 +20,29 @@ const Nav = styled.nav`
         margin: 0 1rem 0 1rem;
         list-style: none;
         height: inherit;
-        
-
         display: flex;
         justify-content: center;
         align-items: center; 
+
+        & img {
+            display: none;
+        }
 
         & a {
             color: white;
             text-decoration: none;
         }
     }
+
+     & button {
+        display: none;
+    }
+
+    @media (max-width: 992px) {
+        & button {
+            display: block;
+        }
+    } 
 
 
 `; 

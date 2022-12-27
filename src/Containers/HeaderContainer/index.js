@@ -3,35 +3,44 @@ import Nav from "../../Components/Nav";
 import Path from "../../Path";
 import Logo from "../../Components/Logo";
 import ButtonNav from "../../Components/ButtonNav";
+import imgButton from "../../img/movil-boton.svg";
+
+
 import { useState } from "react";
 
 const HeaderConatiner = () => {
-    const [ active, setActive ] = useState(false); 
+  const [active, setActive] = useState("none");
 
-    const handlerActiveButtonNav = () =>{
-      if(active){
-        setActive(active => false); 
-      }
-    } 
-    return ( 
-        <Header>
-        <Logo>
-          <span>JV</span>
-        </Logo>
-        <Nav>
-          <ul>
-            {Path.map((rute) => (
-              <li>
-                <a href={rute.path}>{rute.name}</a>
-              </li>
-            ))}
-          </ul>
-        </Nav>
-        <ButtonNav onClick={() => handlerActiveButtonNav }>
-            &#9776; 
-        </ButtonNav>
-      </Header>
-    ); 
-}
+  const handlerActiveButtonNav = () => {
+    if (active) {
+      setActive(false);
+    } else {
+      setActive(true);
+    }
+  };
 
-export default HeaderConatiner; 
+  return (
+    <Header menu={active}>
+      <Logo>
+        <span>JV</span>
+      </Logo>
+      <Nav>
+        <ButtonNav onClick={ handlerActiveButtonNav }>X</ButtonNav>
+        <ul>
+          {Path.map((rute, index) => (
+            <li key={index}>
+              <a key={index} onClick={handlerActiveButtonNav} href={rute.path}>
+                {rute.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Nav>
+      <ButtonNav onClick={handlerActiveButtonNav}>
+        <img src={imgButton} alt="btn" />
+      </ButtonNav>
+    </Header>
+  );
+};
+
+export default HeaderConatiner;
