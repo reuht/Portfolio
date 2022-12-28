@@ -13,7 +13,7 @@ const Header = styled.header`
     position: relative;
     top: 0;
 
-    @media (max-width: 992px) {
+    @media screen and (max-width: 992px) {
         padding: 0 1.5rem 0 1.5rem;
         height: calc(6.25rem * 0.65);
 
